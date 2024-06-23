@@ -73,6 +73,9 @@
 /* main() is needed from the application software as a launch point */
 extern int main( void );
 
+extern void PUT32 ( unsigned int, unsigned int );
+extern unsigned int GET32 ( unsigned int );
+extern void DELAY ( unsigned int );
 /************************************************************
   GLOBAL FUNCTIONS
 ************************************************************/
@@ -83,7 +86,3 @@ extern int main( void );
  * @note Should be the only place to call OS_ADDINIT()
  */
 int BRS_Startup ( void );
-
-extern void PUT32 ( unsigned int, unsigned int );
-extern unsigned int GET32 ( unsigned int );
-extern void DELAY ( unsigned int );
