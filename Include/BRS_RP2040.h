@@ -82,7 +82,7 @@ extern int main( void );
  * 
  * @note Should be the only place to call OS_ADDINIT()
  */
-int notMain ( void );
+int BRS_Startup ( void );
 
 extern void PUT32 ( unsigned int, unsigned int );
 extern unsigned int GET32 ( unsigned int );

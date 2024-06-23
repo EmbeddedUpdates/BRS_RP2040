@@ -4,7 +4,7 @@
 
     ldr r0,=0x20001000
     mov sp,r0
-    bl notMain
+    bl BRS_Startup
     b .
 
 .thumb_func

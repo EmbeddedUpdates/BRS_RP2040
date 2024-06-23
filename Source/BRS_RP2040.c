@@ -27,10 +27,10 @@
 ******************************************/
 
 /**
- * FUNC: int notMain( void )
+ * FUNC: int BRS_Startup( void )
  * BRIEF: "Startup" C Code that is executed by the assembly startup. Jumps to Main(). Should never return. While(1) is present for error case to avoid unexpected fault/behavior.
  */
-int notMain ( void )
+int BRS_Startup ( void )
 {
     int retval = 0;
 #if defined( BRS_RP2040_ENABLE_LED_SUPPORT )
@@ -63,10 +63,10 @@ int notMain ( void )
 #if defined( BRS_RP2040_ENABLE_LED_SUPPORT )
         //turn on the led
         PUT32(SIO_GPIO_OUT_SET,1<<25);
-        DELAY(0x100000);
+        DELAY(0x050000);
         //turn off the led
         PUT32(SIO_GPIO_OUT_CLR,1<<25);
-        DELAY(0x100000);
+        DELAY(0x050000);
 #endif /* BRS_RP2040_ENABLE_LED_SUPPORT */
         
     }
