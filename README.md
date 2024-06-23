@@ -5,4 +5,4 @@ Gets the hardware to startup and execute to main()
 
 ## Debt
 
-## [sub-section](./debt.md#TechnicalDebt)
+## [Technical Debt for this component is located here](./debt.md#TechnicalDebt)
