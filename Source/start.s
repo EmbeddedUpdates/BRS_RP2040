@@ -4,7 +4,7 @@
 
     ldr r0,=0x20001000
     mov sp,r0
-    bl notmain
+    bl notMain
     b .
 
 .thumb_func
