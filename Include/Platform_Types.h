@@ -31,10 +31,10 @@
 ************************************************************/
 
 typedef enum Std_ErrorCodeTag {
-    OK = 0,
-    NOT_OK = 1,
-    INVALID_PARAM = 2,
-    MODULE_UNINIT = 3,
+    E_OK = 0,
+    E_NOT_OK = 1,
+    E_INVALID_PARAM = 2,
+    E_MODULE_UNINIT = 3,
 
 } Std_ErrorCode;
 
