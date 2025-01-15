@@ -2,17 +2,19 @@
 /**
  * @file Platform_Types.h
  * @author pflaherty
- * @date 06.23.2024
+ * @date 01.15.2025
  * @brief Defines Types that are used by all modules.
  * 
  * COMPONENT: BRS_RP2040
- * VERSION: 01.01.00
+ * VERSION: 01.01.01
  *
  * Change History
  * 01.01.00 - pflaherty - Initial Creation
+ * 01.01.2025 - pflaherty - bugfixes for link related UART failure (phantom uart bug)
  * 
  */
-
+#ifndef PLATFORM_TYPES_H
+#define PLATFORM_TYPES_H
 
 /************************************************************
   DEFINES
@@ -22,8 +24,10 @@
 #define OR ||
 #define AND &&
 
+/* Some of these may be defined elsewhere (i.e. stddef.h) and should have #if guards here */
+#if !defined( NULL )
 #define NULL (void *)0x00
-#define ZERO32 0x00000000ul
+#endif /* NULL */
 
 /* 
   Converts an index bit to bitmap, i.e. 0x4 -> 0b10000
@@ -55,10 +59,13 @@ typedef unsigned char Std_ReturnType;
 /* 32 Bit Platform Type Defs */
 typedef unsigned char uint8;
 typedef unsigned short uint16;
-typedef unsigned long uint32;
+typedef unsigned int uint32;
+typedef unsigned long uint64;
 typedef char int8;
 typedef short int16;
-typedef long int32;
+typedef int int32;
+
+#define ZERO32 ((uint32)0x00000000)
 
 /************************************************************
   EXTERN FUNCTIONS
@@ -68,3 +75,4 @@ typedef long int32;
   GLOBAL FUNCTIONS
 ************************************************************/
 
+#endif /* PLATFORM_TYPES_H */

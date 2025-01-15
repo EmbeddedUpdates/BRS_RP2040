@@ -2,10 +2,56 @@
 .cpu cortex-m0
 .thumb
 
-    ldr r0,=0x20001000
+.global vector_table
+vector_table:
+
+.thumb_func
+.global c_entry
+c_entry:
+    bl reset
+    .balign 4
+    .word reset ;@ has to be offset 4
+    .word loop
+    .word loop
+    .word loop
+
+    .word loop
+    .word loop
+    .word loop
+    .word loop
+
+    .word loop
+    .word loop
+    .word loop
+    .word loop
+
+    .word loop
+    .word loop
+    .word loop
+    .word loop
+
+
+.section .text
+.thumb_func
+reset:
+    ldr r1,=0xE000ED08 ;@ VTOR
+    ldr r0,=vector_table
+    str r0,[r1]
+
+    ldr r0,=0x20002000
     mov sp,r0
     bl BRS_Startup
-    b .
+    b loop
+
+.thumb_func
+loop:
+    b loop
+
+.align
+.ltorg
+
+;@ ----------------------------------
+.balign 0x100
 
 .thumb_func
 .globl PUT32

@@ -5,5 +5,11 @@ MEMORY
 }
 SECTIONS
 {
-    .text   : { *(.text*)   } > ram
+    .startupText       : { *start.S(.text*) } > ram
+    .defaultTextArea   : { *(.text*)   }      > ram
+
+    .defaultDataArea   : { 
+        *(.data*)
+        *(.bss*)
+    } > ram
 }
