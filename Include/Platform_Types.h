@@ -16,6 +16,11 @@
 #ifndef PLATFORM_TYPES_H
 #define PLATFORM_TYPES_H
 
+#if !defined(RP2040) && !defined(VIRTUAL_TARGET)
+  /* for cleaner linting, we will assume VIRTUAL_TARGET. */
+  #define VIRTUAL_TARGET
+#endif
+
 /************************************************************
   DEFINES
 ************************************************************/
@@ -50,7 +55,6 @@ typedef enum Std_ErrorCodeTag {
     E_NOT_OK = 1,
     E_INVALID_PARAM = 2,
     E_MODULE_UNINIT = 3,
-
 } Std_ErrorCode;
 
 /* To simplify generic return types (i.e. Pass, Fail, Error Code) */
@@ -65,7 +69,10 @@ typedef char int8;
 typedef short int16;
 typedef int int32;
 
+#define MOD_ID_RESERVED 0xFF
+
 #define ZERO32 ((uint32)0x00000000)
+
 
 /************************************************************
   EXTERN FUNCTIONS

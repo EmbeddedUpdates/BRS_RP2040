@@ -72,6 +72,8 @@ DELAY:
     bne DELAY
     bx lr
 
+;@ pflaherty - the below copyright is maintained as the software herein is not sufficiently changed to not be at least a derivative of this work. 
+;@ also, David Welch's work helped a great deal in understanding the rp2xxx bootloader and without this I would not have gotten any progress done.
 
 ;@-------------------------------------------------------------------------
 ;@
